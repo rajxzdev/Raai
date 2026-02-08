@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAAI - AI Assistant</title>
+    <script>
+      // Load saved settings and update title before page renders
+      try {
+        const savedSettings = localStorage.getItem('raai_app_settings_v2');
+        if (savedSettings) {
+          const settings = JSON.parse(savedSettings);
+          if (settings.webName) {
+            document.title = settings.webName + ' - AI Assistant & Image Generator';
+          }
+        }
+      } catch (e) {
+        console.log('Could not load settings for title');
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
